@@ -66,7 +66,7 @@ The directory structure of this project is as follows:
 
 ## Requirements and Setup
 
-This project requires both Python and R for full functionality. The necessary Python dependencies are managed through [Conda](https://anaconda.org/anaconda/conda), while the statistical/ML analysis steps require R. You can install R from [here](https://cran.r-project.org/), or through [Conda](https://anaconda.org/anaconda/conda).
+This project requires both Python and R for full functionality. The necessary Python dependencies are managed through [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/), while the statistical/ML analysis steps require R. You can install R from [here](https://cran.r-project.org/), or through [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/).
 
 Note that full reproduction of the results requires access to the raw data (see config), which cannot be shared publicly due to privacy and legal reasons. 
 
