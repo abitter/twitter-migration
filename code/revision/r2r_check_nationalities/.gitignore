@@ -1,0 +1,6 @@
+# data: crosswalk, OpenAlex records, fetch checkpoint, per-researcher intermediates
+authors_tweeters_2024_02.csv
+openalex_results_v2*.json.gz
+profiles_*_v2.csv.gz
+author_ids_to_fetch_v2.csv
+__pycache__/

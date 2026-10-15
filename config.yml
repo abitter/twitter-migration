@@ -1,0 +1,102 @@
+# Data paths the scripts operate on
+paths:
+  data: 
+    raw:
+      mastodon:
+        introduction_posts: /home/shared_folder/twitter_migration/data/raw/mastodon/introduction_posts/ # not used 
+        known_instances: /home/shared_folder/twitter_migration/data/raw/mastodon/known_instances/
+        known_instances/tokens: /home/shared_folder/twitter_migration/data/raw/mastodon/known_instances/tokens/
+        profiles_researchers: /home/shared_folder/twitter_migration/data/raw/mastodon/profiles_researchers/
+        profiles: /home/shared_folder/twitter_migration/data/raw/mastodon/profiles
+        timelines: /home/shared_folder/twitter_migration/data/raw/mastodon/timelines
+      open_datasets:
+        academics_on_mastodon: /home/shared_folder/twitter_migration/data/raw/open_datasets/academics_on_mastodon/
+        opencheck: /home/shared_folder/twitter_migration/data/raw/open_datasets/opencheck/
+      twitter: 
+        timelines mongeon json/data: /home/shared_folder/twitter_migration/data/raw/twitter/timelines mongeon json/data/
+        researcher profiles and timelines: /home/shared_folder/twitter_migration/data/raw/twitter/researcher profiles and timelines/
+        researcher timelines json (mongeon + opencheck): /home/shared_folder/twitter_migration/data/raw/twitter/researcher timelines json (mongeon + opencheck)/
+        hashtag queries: /home/shared_folder/twitter_migration/data/raw/twitter/hashtag queries/
+        influencers: /home/shared_folder/twitter_migration/data/raw/twitter/influencers/
+    processed:
+      mastodon:
+        setup: /home/shared_folder/twitter_migration/data/processed/mastodon/0_setup/
+        instances_identification: /home/shared_folder/twitter_migration/data/processed/mastodon/instances_identification/
+        researcher_identification: /home/shared_folder/twitter_migration/data/processed/mastodon/researcher_identification/
+      social_impact: /home/shared_folder/twitter_migration/data/processed/social_impact/
+      twitter:
+        setup: /home/shared_folder/twitter_migration/data/processed/twitter/0_setup/
+        extract_handles: /home/shared_folder/twitter_migration/data/processed/twitter/extract_handles
+        influencer_identification: /home/shared_folder/twitter_migration/data/processed/twitter/influencer_identification/
+      final_processed: /home/shared_folder/twitter_migration/data/processed/final_processed/
+      countries: /home/shared_folder/twitter_migration/data/processed/countries/ # revision: OpenAlex crosswalk, author records, per-researcher country
+    analyzed: 
+      # subset of variables for privacy reasons
+      final_analyzed: /home/lauer/projects/Mastodon/data/
+  figures: /home/lauer/projects/Mastodon/results/figures/
+  models: /home/shared_folder/twitter_migration/models/
+  tokens:
+    mastodon_instances_token: /home/lauer/projects/Mastodon/code/data_collection/mastodon_instances_token.txt # backup copy in data/raw/mastodon/known_instances/
+
+# Urls used for data collection
+urls:
+  mastodon_instances_api: https://instances.social/api/1.0/instances/list
+  open_check: "https://opencheck.is/people"
+
+# Patterns used for filtering data
+patterns:
+  influencer_identification: 
+    # In hashtag queries, drop all tweets that do not contain any of the keywords, i.e. are not related to twitter migration
+    keywords_to_check:
+      - mastodon
+      - sciencemastodon
+      - academicmastodon
+      - twitterexit
+      - twitterexodus
+      - twittermigration
+      - joinmastodon
+      - mastodonmigration
+  open_science_endorsement:
+    # In profile descriptions, identify open science endorsement using regex (note: double \\ used as escape char in yml)
+    open_science_patterns: 
+      - "open science"
+      - "open\\s?-\\s?science"
+      - "openscience"
+      - "reproducibility"
+      - "reproducible"
+      - "open access"
+      - "open\\s?-\\s?access"
+      - "openaccess"
+      - "open data"
+      - "open\\s?-\\s?data"
+      - "opendata"
+      - "open source"
+      - "open\\s?-\\s?source"
+      - "opensource"
+      - "preregistration"
+      - "pre registration"
+      - "pre\\s?-\\s?registration"
+
+# Timezone and datetime constants 
+constants:
+  common_timezone: "UTC"
+  # Start and end date for migration period
+  start_date_nov: "2022-11-01 00:00:00.000000 UTC"
+  end_date_dec: "2022-12-31 23:59:59.999999 UTC"
+  # Start and end date for identifying revitalized accounts
+  start_date_revitalized_jan: "2022-01-01 00:00:00.000000 UTC"
+  end_date_revitalized_oct: "2022-10-31 23:59:59.999999 UTC"
+  # Start and end date for assessing return to Twitter after migration
+  start_date_apr: "2023-04-01 00:00:00.000000 UTC"
+  end_date_apr: "2023-04-30 23:59:59.999999 UTC"
+
+# Params for zero-shot topic modelling using BERTopic
+bertopic_params: 
+  embedding_model: "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2" # multilingual model
+  min_topic_size: 1 # 15 
+  # n_gram_range=(1, 1),  # default only unigrams, could increase bc we only have 4500 topics.
+  calculate_probabilities: true
+  zeroshot_min_similarity: 0 # bc we already removed posts that don't exceed the threshold, and here only the most similar topic is assigned 
+  # representation_model="KeyBERTInspired", # no unified representation model needed as we dont merge zeroshot and regular bertopics; here we only have zeroshot
+
+

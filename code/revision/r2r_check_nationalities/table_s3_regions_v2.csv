@@ -1,0 +1,8 @@
+region,migrated,not_migrated,total,migration_rate_pct,share_of_migrants_pct,share_of_academics_pct
+Europe,1842,94110,95952,1.92,54.14,44.2
+North America,1233,76973,78206,1.58,36.24,36.03
+Oceania,181,12260,12441,1.45,5.32,5.73
+Africa,17,2906,2923,0.58,0.5,1.35
+Asia,100,18503,18603,0.54,2.94,8.57
+Latin America,26,7775,7801,0.33,0.76,3.59
+Other,3,1144,1147,0.26,0.09,0.53

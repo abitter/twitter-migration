@@ -1,0 +1,12 @@
+,included,excluded
+n,258409.0,151773.0
+account_age_days_median,3006.0,2883.0
+followers_median,425.0,131.0
+following_median,463.0,193.0
+tweet_count_median,646.0,117.0
+listed_median,4.0,1.0
+protected_pct,0.37576090616038915,3.465043189500109
+verified_pct,0.9005104311382344,0.5620235483254598
+mastodon_handle_pct,2.67792530445921,3.7542909476652633
+mastodon_active_novdec_pct,2.5200360668552566,0.3103318772113617
+mastodon_active_novdec_n,6512.0,471.0
