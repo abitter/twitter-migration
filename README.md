@@ -40,7 +40,8 @@ The directory structure of this project is as follows:
 │   ├── utils/
 │   └── revision/
 ├── data/
-│   └── final_analyzed.csv
+│   ├── final_analyzed.csv
+│   └── codebook.csv
 ├── results/
 │   └── figures/
 ├── config.yml
@@ -56,7 +57,7 @@ The directory structure of this project is as follows:
   - `utils/`: Utility functions used across the project.
   - `revision/`: Additional analyses added in the revision (September 2026), see below.
   
-- `data/`: Directory for storing data. `final_analyzed.csv` contains the final analyzed data used in the modelling. Raw data and metadata are not available for privacy/legal reasons. 
+- `data/`: Directory for storing data. `final_analyzed.csv` contains the final analyzed data used in the modelling; `codebook.csv` describes its columns. Raw data and metadata are not available for privacy/legal reasons. 
 
 - `results/`: Contains the final results and figures generated from the analysis.
 
@@ -107,7 +108,7 @@ To set up and run this project, if raw data is available, follow these steps:
 
 The main script main.py goes through and explains all steps of the pipeline. Note that some steps are performed in R as described in the script.
 
-If the raw data is not available, you can explore the final preprocessed and analyzed dataset used for modeling (`data/final_analyzed.csv`). However, note that metadata has been removed for privacy/legal reasons. That is, while the dependent variable (DV) and key features of interest are included, the covariates are not.
+If the raw data is not available, you can explore the final preprocessed and analyzed dataset used for modeling (`data/final_analyzed.csv`; see `data/codebook.csv` for a description of the columns). However, note that metadata has been removed for privacy/legal reasons. That is, while the dependent variable (DV) and key features of interest are included, the covariates are not.
 
 ## Revision analyses
 
